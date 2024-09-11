@@ -20,9 +20,9 @@ jobs:
       - name: Sign in to Docker Hub
         run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker Image
-        run: docker build -t sionp/front .
+        run: docker build -t sionp/todo_front .
       - name: Push Docker Image
-        run: docker push sionp/front:latest
+        run: docker push sionp/todo_front:latest
 
   deploy:
     needs: build
@@ -30,8 +30,8 @@ jobs:
 
     steps:
       - name: Pull image from docker hub
-        run: docker pull sionp/front:latest
+        run: docker pull sionp/todo_front:latest
       - name: Delete existing container
         run: docker rm -f reactContainer
       - name: Run container
-        run: docker run -d -p 80:80 --name reactContainer sionp/front
+        run: docker run -d -p 80:80 --name reactContainer sionp/todo_front
