@@ -24,7 +24,7 @@ const Item = ({ task }) => {
   // console.log(isCompleted);
 
   const deleteItem = async () => {
-    const confirm = window.confirm('아이템을 삭제하시겠습니까?');
+    const confirm = window.confirm('아이템을 삭제하시겠습니까??');
 
     if (!confirm) return;
 
